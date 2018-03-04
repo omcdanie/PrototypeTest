@@ -8,10 +8,10 @@ export default class Bucket extends Component {
 
     render() {
         return (
-            <div className="bucket-container">
-                <ActiveBucket className="bucket-box"/>
-                <br />
-                <ReserveBucket className="bucket-box"/>
+            <div>
+                <ActiveBucket/>
+
+                <ReserveBucket/>
             </div>
         );
     }
