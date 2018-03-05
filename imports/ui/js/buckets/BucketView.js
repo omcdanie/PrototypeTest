@@ -10,7 +10,6 @@ export default class Bucket extends Component {
         return (
             <div>
                 <ActiveBucket/>
-
                 <ReserveBucket/>
             </div>
         );
