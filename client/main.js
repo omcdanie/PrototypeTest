@@ -9,7 +9,6 @@ import '../imports/db/client/collections/reserveBucketCollections/ReserveList';
 import Profile from "../imports/app/Profile";
 
 
-
 Meteor.startup(() => {
     Tracker.autorun(() => {
         render(<Profile/>, document.getElementById('app'));

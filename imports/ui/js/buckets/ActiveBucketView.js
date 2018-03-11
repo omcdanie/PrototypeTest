@@ -32,13 +32,13 @@ export default class ActiveBucket extends Component {
                         className="bucket-input"
                         placeholder="Please enter a Goal Name"
                         onChange={this.handleNameChange}
-                        value={this.state.name}
+                        value={ActiveBucket.verifyInput(this.state.name)}
                     />
                     <input
                         className="bucket-input"
                         placeholder="Please give a Location"
                         onChange={this.handleLocationChange}
-                        value={this.state.location}
+                        value={ActiveBucket.verifyInput(this.state.location)}
                     />
                     <input
                         className="bucket-input"
@@ -122,7 +122,7 @@ export default class ActiveBucket extends Component {
 
     static verifyInput(text) {
         if (text > 40) {
-            return alert("Your description can't exceed 20 characters.");
+            return alert("Input can't exceed 40 characters.");
         } else {
             return text;
         }
