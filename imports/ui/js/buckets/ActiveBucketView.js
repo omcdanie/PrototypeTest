@@ -40,7 +40,9 @@ export default class ActiveBucket extends Component {
                         onChange={this.handleDescriptionChange}
                         value={ActiveBucket.verifyInput(this.state.description)}
                     />
-                    <CheckBox/>
+                    <CheckBox
+                        label={checkBoxLabel}
+                    />
 
                     <button
                         className="bucket-button"

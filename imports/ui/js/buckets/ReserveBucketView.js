@@ -51,7 +51,7 @@ export default class ReserveBucket extends Component {
                     className="bucket-button"
                 >
                     <h3 className="bucket-button-font">
-                        Display Selected Goal?
+                        Display Goal?
                         {/*{this.state.items.values()}*/}
                     </h3>
                 </button>

@@ -3,17 +3,21 @@ import React, {Component} from "react";
 export default class CheckBox extends Component {
     constructor(label) {
         super(label);
-        this.props = {label: ''};
         this.state = {isChecked: false};
 
         this.handleAddToReserve = this.handleAddToReserve.bind(this);
     }
+
+    static props = {
+        label: ''
+    };
 
     render() {
        return (
            <div>
                <label
                    className="bucket-checkbox-label"
+                   label="label"
                >
                    <input
                        className="checkbox"
@@ -21,8 +25,7 @@ export default class CheckBox extends Component {
                         checked={this.isChecked}
                         onChange={this.handleAddToReserve}
                    />
-                   {/*{label}*/}
-                   Move to Reserve?
+                   {this.props.label}
                </label>
            </div>
        )
@@ -31,11 +34,11 @@ export default class CheckBox extends Component {
     handleAddToReserve(e) {
         // onSubmit send this list to the reserve pool
         this.setState({isChecked: e.target.value});
-        if (this.state.isChecked) {
+        if (e === true) {
             //something happens here
-            console.log("checked:  " + this.state.isChecked.valueOf());
+            console.log("checked:  " + this.state.isChecked);
         } else {
-            console.log("checked:  " + this.state.isChecked.valueOf());
+            console.log("checked:  " + this.state.isChecked);
         }
 
     }
