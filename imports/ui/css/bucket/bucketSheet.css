@@ -1,19 +1,18 @@
-/*.bucket-container {*/
-    /*display: grid;*/
-    /*grid-auto-columns: auto;*/
-    /*grid-gap: 20px;*/
-    /*background-color: #D4541B;*/
-    /*padding: inherit;*/
-/*}*/
+.bucket-container {
+    display: inline-flex;
+    margin: 15px;
+    height: auto;
+    background-color: gainsboro;
+    border-radius: 7px;
+}
 
 .bucket-box-left {
     display: inline-block;
     background-color: #A9A9A9;
-    border: 10px #D4541B;
     border-radius: 5px;
     padding: 15px;
     width: 206px;
-    height: 186px;
+    height: auto;
     margin: 10px;
     float: left;
     align-content: center;
@@ -22,20 +21,18 @@
 .bucket-box-right {
     display: inline-block;
     background-color: #A9A9A9;
-    border: 10px #D4541B;
     border-radius: 5px;
     padding: 15px;
     width: 206px;
-    /*height: 186px;*/
     height: auto;
     margin: 10px;
-    float: right;
+    float: left;
     align-content: center;
 }
 
 .list-box {
     display: inline-block;
-    background-color: #0f4f73;
+    background-color: whitesmoke;
     width: 200px;
     margin: 3px;
     border: 3px black;
@@ -43,8 +40,36 @@
     align-content: center;
 }
 
-ol.number-box {
+ul.number-box {
     -webkit-padding-start: inherit !important;
+}
+
+input:checked.checkbox{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #112222;
+}
+
+input[type="checkbox"]:empty.checkbox {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: white !important;
+}
+
+label.bucket-checkbox-label {
+    display: inline-block;
+    font-family: Magneto, fantasy;
+    position: inherit;
+    height: 20px;
+    font-size: 14px;
 }
 
 button.bucket-button {
@@ -52,13 +77,13 @@ button.bucket-button {
     margin-top: 5px;
     width: 205px;
     border-radius: 5px;
-
     background-color: #0f4f73;
 }
 
 input.bucket-input {
     display: inline-block;
     width: 200px;
+    background-color: white;
     border-radius: 5px;
 }
 
@@ -74,6 +99,12 @@ h2.bucket-title-font {
     color: #0f4f73;
 }
 
+select.reserve-bucket-combo-box {
+    display: inline-block;
+    border-radius: 5px;
+    width: 206px;
+}
+
 body {
-    background-color: #D4541B;
+    background-color: ghostwhite;
 }

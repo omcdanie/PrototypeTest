@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import EventList from "./userLists/ListView";
+import CheckBox from "../../../utils/CheckBox";
+
+const checkBoxLabel = "Move to reserve?";
 
 export default class ActiveBucket extends Component {
 
@@ -9,6 +12,7 @@ export default class ActiveBucket extends Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -20,26 +24,30 @@ export default class ActiveBucket extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input
                         className="bucket-input"
-                        placeholder="Name"
+                        placeholder="Please enter a Goal Name"
                         onChange={this.handleNameChange}
                         value={this.state.name}
                     />
                     <input
                         className="bucket-input"
-                        placeholder="Location"
+                        placeholder="Please give a Location"
                         onChange={this.handleLocationChange}
                         value={this.state.location}
                     />
                     <input
                         className="bucket-input"
-                        placeholder="Description"
+                        placeholder="Please give a description"
                         onChange={this.handleDescriptionChange}
                         value={ActiveBucket.verifyInput(this.state.description)}
                     />
-                    <button className="bucket-button">
+                    <CheckBox/>
+
+                    <button
+                        className="bucket-button"
+                    >
                         <h3 className="bucket-button-font">
                             Add Active Goal?
-                            {this.state.items.values()}
+                            {/*{this.state.items.values()}*/}
                         </h3>
                     </button>
                 </form>
@@ -55,8 +63,8 @@ export default class ActiveBucket extends Component {
     }
     handleDescriptionChange(e) {
         this.setState({description: e.target.value});
-
     }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -82,7 +90,7 @@ export default class ActiveBucket extends Component {
             items: prevState.items.concat(newItems),
             name: '',
             location: '',
-            description: ''
+            description: '',
         }));
     }
 

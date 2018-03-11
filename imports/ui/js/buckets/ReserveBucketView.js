@@ -5,49 +5,68 @@ export default class ReserveBucket extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: [], text: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
         return (
             <div className="bucket-box-right">
                 <h2 className="bucket-title-font">Reserve Bucket</h2>
-                <EventList items={this.state.items}/>
-                <form onSubmit={this.handleSubmit}>
+                <form>
                     <input
                         className="bucket-input"
-                        onChange={this.handleChange}
-                        value={this.state.text}
+                        placeholder="Search Reserve Bucket"
+                        list="something"
                     />
-                    <button className="bucket-button">
-                        <h3 className="bucket-button-font">
-                            Add Reserve Goal #
-                            {this.state.items.length + 1}
-                        </h3>
-                    </button>
+                    {/*
+                       <datalist/> is incompatible on Safari and Opera
+                       will need to implement this polyfill in for
+                       compatibility
+                       https://github.com/Fyrd/purejs-datalist-polyfill
+                     */}
+                    <datalist
+                        className="reserve-bucket-combo-box"
+                        id="something"
+                    >
+                        <option>
+                            something1
+                        </option>
+                        <option>
+                            something2
+                        </option>
+                        <option>
+                            something3
+                        </option>
+                        <option>
+                            something4
+                        </option>
+                        <option>
+                            something5
+                        </option>
+                        <option>
+                            something6
+                        </option>
+                    </datalist>
                 </form>
+                <button
+                    className="bucket-button"
+                >
+                    <h3 className="bucket-button-font">
+                        Display Selected Goal?
+                        {/*{this.state.items.values()}*/}
+                    </h3>
+                </button>
+                <button
+                    className="bucket-button"
+                >
+                    <h3 className="bucket-button-font">
+                        Move Goal To Active?
+                        {/*{this.state.items.values()}*/}
+                    </h3>
+                </button>
+
             </div>
         );
     }
 
-    handleChange(e) {
-        this.setState({text: e.target.value});
-    }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        if (!this.state.text.length) {
-            return;
-        }
-        const newItem = {
-            text: this.state.text,
-            id: Date.now()
-        };
-        this.setState(prevState => ({
-            items: prevState.items.concat(newItem),
-            text: ''
-        }));
-    }
 }

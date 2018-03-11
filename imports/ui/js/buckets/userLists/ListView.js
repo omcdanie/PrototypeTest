@@ -8,7 +8,7 @@ export default class EventList extends Component {
     render() {
         return (
             <div>
-                <ol className="number-box">
+                <ul className="number-box">
                     {this.props.items.map(item => (
                         <li className="list-box" key={item.id}> Goal Name: {item.name}</li>
                     ))}
@@ -18,7 +18,7 @@ export default class EventList extends Component {
                     {this.props.items.map(item => (
                         <li className="list-box" key={item.id}> Goal Description: {item.description}</li>
                     ))}
-                </ol>
+                </ul>
             </div>
         );
     }
