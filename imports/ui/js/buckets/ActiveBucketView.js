@@ -1,6 +1,12 @@
 import React, {Component} from "react";
+
 import EventList from "./userLists/ListView";
 import CheckBox from "../../../utils/CheckBox";
+
+import ActiveLists from '../../../db/client/collections/activeBucketCollections/ActiveList';
+import ReserveLists from '../../../db/client/collections/reserveBucketCollections/ReserveList';
+
+import isChecked from "../../../utils/CheckBox";
 
 const checkBoxLabel = "Move to reserve?";
 
@@ -40,6 +46,7 @@ export default class ActiveBucket extends Component {
                         onChange={this.handleDescriptionChange}
                         value={ActiveBucket.verifyInput(this.state.description)}
                     />
+
                     <CheckBox
                         label={checkBoxLabel}
                     />
@@ -87,6 +94,7 @@ export default class ActiveBucket extends Component {
             // the id should be the userId + some other mechanism
             id: Date.now()
         };
+
         // set form values back to placeholder text
         this.setState(prevState => ({
             items: prevState.items.concat(newItems),
@@ -94,6 +102,22 @@ export default class ActiveBucket extends Component {
             location: '',
             description: '',
         }));
+
+        if(isChecked) {
+            ReserveLists.insert({
+                name: newItems.name,
+                location: newItems.location,
+                description: newItems.description
+            });
+            ReserveLists.find().fetch();
+        } else {
+            ActiveLists.insert({
+                name: newItems.name,
+                location: newItems.location,
+                description: newItems.description
+            });
+            ActiveLists.find().fetch();
+        }
     }
 
     static verifyInput(text) {

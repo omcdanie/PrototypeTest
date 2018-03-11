@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 
+let moveToReserve;
+
 export default class CheckBox extends Component {
     constructor(label) {
         super(label);
@@ -21,9 +23,9 @@ export default class CheckBox extends Component {
                >
                    <input
                        className="checkbox"
-                        type="checkBox"
-                        checked={this.isChecked}
-                        onChange={this.handleAddToReserve}
+                       type="checkBox"
+                       checked={this.isChecked}
+                       onChange={this.handleAddToReserve}
                    />
                    {this.props.label}
                </label>
@@ -41,7 +43,7 @@ export default class CheckBox extends Component {
             console.log("checked:  " + this.state.isChecked);
         }
 
-    }
+    };
 
 
 }

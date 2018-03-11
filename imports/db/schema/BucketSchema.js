@@ -1,4 +1,4 @@
-import ActiveBucket from "../ui/js/buckets/ActiveBucketView";
+import ActiveBucket from "../../ui/js/buckets/ActiveBucketView";
 import SimpleSchema from 'simple-schema';
 
 ActiveBucket.schema = new SimpleSchema({
